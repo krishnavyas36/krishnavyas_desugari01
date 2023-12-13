@@ -4,10 +4,10 @@
 from django.db import models
 
 class Contact(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100, uniqe = True)
-    email = models.EmailField(uniqe = True)
-    phone_number = models.CharField(max_length=20, uniqe = True)
+    first_name = models.CharField(max_length=20, unique = True)
+    last_name = models.CharField(max_length=20, unique = True)
+    email = models.EmailField(max_length = 30, unique = True)
+    phone_number = models.CharField(max_length=10)
 
     class Meta:
         app_label = 'pycontacts'
