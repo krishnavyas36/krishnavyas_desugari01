@@ -1,0 +1,25 @@
+<!-- contact_forms/contact_create.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Contact</title>
+    <!-- Add your CSS styles or link to a CSS file here -->
+</head>
+<body>
+    <h1>Create Contact</h1>
+    <form method="post" action="{% url 'contact_create' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+
+    <!-- Back button to redirect to the contact list page -->
+    <a href="{% url 'contact_list' %}">Back to Contact List</a>
+
+    <!-- Add any additional content or navigation here -->
+</body>
+</html>
+
+

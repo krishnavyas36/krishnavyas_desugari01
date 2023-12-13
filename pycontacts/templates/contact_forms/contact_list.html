@@ -1,0 +1,53 @@
+<!-- contact_forms/contact_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact List</title>
+    <!-- Add your CSS styles or link to a CSS file here -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Add your custom styles here if needed */
+        body {
+            padding: 20px;
+        }
+        footer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact List</h1>
+    <ul class="list-group">
+        {% for contact in contacts %}
+            <li class="list-group-item">
+                {{ contact.first_name }} {{ contact.last_name }} - {{ contact.email }}
+                <a class="btn btn-info btn-sm" href="{% url 'contact_detail' contact.pk %}">View Details</a>
+                <a class="btn btn-warning btn-sm" href="{% url 'contact_update' contact.pk %}">Update</a>
+                <a class="btn btn-danger btn-sm" href="{% url 'contact_confirm_delete' contact.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Add a button to create a new contact -->
+    <a class="btn btn-success" href="{% url 'contact_create' %}">Create New Contact</a>
+
+    <!-- Footer section -->
+    <footer>
+        Created by Krishnavyas Desugari
+    </footer>
+
+    <!-- Add any additional content or navigation here -->
+
+    <!-- Bootstrap JS and jQuery (make sure to include them if not already included) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
