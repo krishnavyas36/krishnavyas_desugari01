@@ -4,32 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form</title>
-    <!-- Add your CSS styles or link to a CSS file here -->
+    <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Add your custom styles here if needed */
         body {
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            flex: 1;
+        }
+
+        /* Add your custom styles here if needed */
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
         }
     </style>
 </head>
 <body>
-    <h1>Contact Form</h1>
-    <form method="post" action="{% if contact.pk %}{% url 'contact_update' contact.pk %}{% else %}{% url 'contact_create' %}{% endif %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Save</button>
-    </form>
+    <div class="container">
+        <h1>Contact Form</h1>
+        <form method="post" action="{% if contact.pk %}{% url 'contact_update' contact.pk %}{% else %}{% url 'contact_create' %}{% endif %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
 
-    <!-- Back button to redirect to the home page -->
-    <a href="{% url 'contact_list' %}" class="btn btn-secondary">Back to Contact List</a>
+        <!-- Back button to redirect to the home page -->
+        <a href="{% url 'contact_list' %}" class="btn btn-secondary">Back to Contact List</a>
 
-    <!-- Add any additional content or navigation here -->
+        <!-- Add any additional content or navigation here -->
+    </div>
 
     <!-- Bootstrap JS and jQuery (make sure to include them if not already included) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Footer section -->
+    <footer>
+        Created by Krishnavyas Desugari
+    </footer>
 </body>
 </html>
-
