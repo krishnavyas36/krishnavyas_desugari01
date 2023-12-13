@@ -10,16 +10,51 @@
         body {
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* This ensures the body takes at least the full height of the viewport */
+            min-height: 100vh;
+            background-color: #f8f9fa;
         }
 
         .container {
-            flex: 1; /* This allows the container to expand and push the footer to the bottom */
+            flex: 1;
+            margin-top: 50px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px; /* Added margin to create space between form groups */
+        }
+
+        button[type="submit"], .btn-secondary {
+            width: 48%; /* Set the width to less than 50% to create space between buttons */
+        }
+
+        button[type="submit"] {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            margin-top: 0; /* Adjust margin-top to align buttons on the same line */
         }
 
         footer {
-            padding: 20px; /* Add padding to the footer if needed */
+            padding: 20px;
             text-align: center;
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
         }
     </style>
 </head>
@@ -28,12 +63,26 @@
         <h1>Create Contact</h1>
         <form method="post" action="{% url 'contact_create' %}">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Create</button>
+            <div class="form-group">
+                <label for="id_first_name">First Name:</label>
+                {{ form.first_name }}
+            </div>
+            <div class="form-group">
+                <label for="id_last_name">Last Name:</label>
+                {{ form.last_name }}
+            </div>
+            <div class="form-group">
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="id_phone_number">Phone Number:</label>
+                {{ form.phone_number }}
+            </div>
+            <button type="submit" class="btn btn-success">Create</button>
+            <!-- Back button to redirect to the contact list page -->
+            <a href="{% url 'contact_list' %}" class="btn btn-secondary">Back to Contact List</a>
         </form>
-
-        <!-- Back button to redirect to the contact list page -->
-        <a href="{% url 'contact_list' %}" class="btn btn-secondary mt-3">Back to Contact List</a>
     </div>
 
     <!-- Bootstrap JS and jQuery (make sure to include them if not already included) -->
@@ -47,3 +96,4 @@
     </footer>
 </body>
 </html>
+

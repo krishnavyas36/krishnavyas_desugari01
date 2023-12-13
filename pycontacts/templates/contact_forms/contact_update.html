@@ -7,22 +7,58 @@
     <!-- Add Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Add your custom styles here if needed */
         body {
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-secondary {
+            margin-top: 10px;
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        /* Footer styling */
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            color: #777;
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
         }
     </style>
 </head>
 <body>
-    <h1>Update Contact</h1>
-    <form method="post" action="{% url 'contact_update' contact.pk %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Update</button>
-    </form>
+    <div class="container">
+        <h1>Update Contact</h1>
+        <form method="post" action="{% url 'contact_update' contact.pk %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
 
-    <!-- Back button to redirect to the home page -->
-    <a href="{% url 'contact_list' %}" class="btn btn-secondary">Back to Contact List</a>
+        <!-- Back button to redirect to the home page -->
+        <a href="{% url 'contact_list' %}" class="btn btn-secondary mt-3">Back to Contact List</a>
+    </div>
 
     <!-- Bootstrap JS and jQuery (make sure to include them if not already included) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -30,9 +66,10 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Footer section -->
-    <footer class="mt-5 text-center">
+    <footer>
         Created by Krishnavyas Desugari
     </footer>
 </body>
 </html>
+
 
