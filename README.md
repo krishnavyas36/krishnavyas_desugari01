@@ -1,10 +1,4 @@
-Based on the information available from your GitHub repository, here's a draft for your README file:
-
----
-
 # Contacts
-
-
 
 ## Features
 
